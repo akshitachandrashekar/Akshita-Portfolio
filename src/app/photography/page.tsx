@@ -1,6 +1,6 @@
 import Link from "next/link";
-import Image from "next/image";
 import SiteHeader from "../components/SiteHeader";
+import ExpandableImage from "../components/ExpandableImage";
 
 const photos = [
   {
@@ -217,19 +217,16 @@ export default function Photography() {
 
         <div className="columns-2 gap-5 sm:columns-3 lg:columns-4">
           {photos.map((photo) => (
-            <div
+            <ExpandableImage
               key={photo.src}
-              className="mb-5 break-inside-avoid overflow-hidden rounded-[4px] border border-foreground/70 shadow-[2px_4px_10px_-2px_rgba(0,0,0,0.35)]"
-            >
-              <Image
-                src={photo.src}
-                alt={photo.alt}
-                width={photo.width}
-                height={photo.height}
-                className="block h-auto w-full"
-                sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
-              />
-            </div>
+              src={photo.src}
+              alt={photo.alt}
+              width={photo.width}
+              height={photo.height}
+              wrapperClassName="group relative mb-5 block w-full cursor-zoom-in break-inside-avoid overflow-hidden rounded-[4px] border border-foreground/70 p-0 shadow-[2px_4px_10px_-2px_rgba(0,0,0,0.35)]"
+              className="block h-auto w-full"
+              sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
+            />
           ))}
         </div>
 

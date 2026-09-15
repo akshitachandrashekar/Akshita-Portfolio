@@ -64,8 +64,6 @@ const pulse: CaseStudyPulse = {
   },
 };
 
-const oldTools = ["Editorial", "Mantis", "Akodo", "+ 11 more tools"];
-
 const decisions = [
   {
     title: "A unified landing page",
@@ -199,59 +197,14 @@ export default function CatalogOne() {
                   </div>
 
                   {/* Fragmentation diagram */}
-                  <div className="rounded-lg border border-foreground/10 bg-white/70 p-6">
-                    <div className="flex flex-wrap items-center justify-center gap-3">
-                      {oldTools.map((tool) => (
-                        <span
-                          key={tool}
-                          className="font-mono-hero rounded-full border border-foreground/20 bg-white px-3 py-1.5 text-xs text-secondary"
-                        >
-                          {tool}
-                        </span>
-                      ))}
-                    </div>
-                    <svg viewBox="0 0 200 60" className="mt-4 h-12 w-full">
-                      <line
-                        x1="20"
-                        y1="10"
-                        x2="100"
-                        y2="50"
-                        stroke="#25232333"
-                        strokeWidth="1.5"
-                        strokeDasharray="4 3"
-                      />
-                      <line
-                        x1="80"
-                        y1="10"
-                        x2="100"
-                        y2="50"
-                        stroke="#25232333"
-                        strokeWidth="1.5"
-                        strokeDasharray="4 3"
-                      />
-                      <line
-                        x1="140"
-                        y1="10"
-                        x2="100"
-                        y2="50"
-                        stroke="#25232333"
-                        strokeWidth="1.5"
-                        strokeDasharray="4 3"
-                      />
-                      <line
-                        x1="180"
-                        y1="10"
-                        x2="100"
-                        y2="50"
-                        stroke="#25232333"
-                        strokeWidth="1.5"
-                        strokeDasharray="4 3"
-                      />
-                      <circle cx="100" cy="50" r="5" fill="#c8622f" />
-                    </svg>
-                    <p className="font-mono-hero text-center text-xs text-secondary">
-                      Same attribute, diverging records
-                    </p>
+                  <div className="rounded-lg bg-white/70 p-6">
+                    <Image
+                      src="/images/work/CatalogOne-silo diagram.png"
+                      alt="Editorial, Mantis, Akodo and 11 more tools all pointing to the same attribute with diverging records"
+                      width={1377}
+                      height={1142}
+                      className="h-auto w-full"
+                    />
                   </div>
                 </div>
 

@@ -9,9 +9,19 @@ type Props = {
   width: number;
   height: number;
   className?: string;
+  wrapperClassName?: string;
+  sizes?: string;
 };
 
-export default function ExpandableImage({ src, alt, width, height, className }: Props) {
+export default function ExpandableImage({
+  src,
+  alt,
+  width,
+  height,
+  className,
+  wrapperClassName,
+  sizes,
+}: Props) {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -37,13 +47,17 @@ export default function ExpandableImage({ src, alt, width, height, className }: 
         type="button"
         onClick={() => setOpen(true)}
         aria-label={`Expand image: ${alt}`}
-        className="group relative block w-full cursor-zoom-in overflow-hidden rounded-lg border border-foreground/10 p-0"
+        className={
+          wrapperClassName ??
+          "group relative block w-full cursor-zoom-in overflow-hidden rounded-lg border border-foreground/10 p-0"
+        }
       >
         <Image
           src={src}
           alt={alt}
           width={width}
           height={height}
+          sizes={sizes}
           className={className ?? "h-auto w-full"}
         />
         <span className="pointer-events-none absolute inset-0 bg-foreground/0 transition-colors group-hover:bg-foreground/5" />

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Image from "next/image";
 import SiteHeader from "../components/SiteHeader";
 
@@ -158,6 +159,42 @@ const photos = [
     height: 3974,
     alt: "A sunflower field in soft focus",
   },
+  {
+    src: "/images/photography/ColorCloth.jpg",
+    width: 3492,
+    height: 816,
+    alt: "Shelves of rolled fabric in a rainbow of colors",
+  },
+  {
+    src: "/images/photography/Ferrari%20Facade.jpg",
+    width: 5552,
+    height: 3701,
+    alt: "A curved building facade with red-tinted glass windows",
+  },
+  {
+    src: "/images/photography/Flower01-NoGrain.jpg",
+    width: 5120,
+    height: 3416,
+    alt: "A close-up sunflower in a field",
+  },
+  {
+    src: "/images/photography/IMG_20181108_101035.jpg",
+    width: 3456,
+    height: 4608,
+    alt: "Coconut palm trees photographed looking straight up",
+  },
+  {
+    src: "/images/photography/KochiStreetName.jpg",
+    width: 6240,
+    height: 4160,
+    alt: "A blue Bastian Street sign against a colonial-era wall in Fort Kochi",
+  },
+  {
+    src: "/images/photography/Sunflowers3.jpg",
+    width: 5629,
+    height: 3753,
+    alt: "A sunflower amid a mixed flower bed",
+  },
 ];
 
 export default function Photography() {
@@ -170,12 +207,12 @@ export default function Photography() {
           <h1 className="font-clash text-5xl font-medium leading-none sm:text-6xl">
             Photography
           </h1>
-          <a
+          <Link
             href="/"
             className="font-mono-hero mt-4 inline-block text-sm text-secondary no-underline hover:text-accent hover:underline"
           >
-            &larr; back home
-          </a>
+            &larr; Back Home
+          </Link>
         </div>
 
         <div className="columns-2 gap-5 sm:columns-3 lg:columns-4">
@@ -198,19 +235,19 @@ export default function Photography() {
 
         <div className="mt-10 flex justify-center">
           <div className="[word-break:break-word] flex flex-col items-center gap-2 rounded-lg border-2 border-foreground bg-white/70 px-6 py-4 text-center">
-            <p className="font-mono-hero text-2xl leading-none">
+            <p className="text-2xl leading-none">
               And many, many more! :)
             </p>
           </div>
         </div>
 
         <div className="mt-6 flex justify-center">
-          <a
+          <Link
             href="/"
             className="font-mono-hero text-sm text-secondary no-underline hover:text-accent hover:underline"
           >
             &larr; back home
-          </a>
+          </Link>
         </div>
       </section>
     </>

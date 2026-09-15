@@ -1,31 +1,68 @@
+import Link from "next/link";
+import Image from "next/image";
 import SiteHeader from "../../components/SiteHeader";
-import CaseStudySidebar from "../../components/CaseStudySidebar";
+import ProjectMeta from "../../components/ProjectMeta";
+import ProjectPulse, {
+  ProjectPulseInline,
+  type CaseStudyPulse,
+} from "../../components/ProjectPulse";
 import MiniAppMockup from "../../components/MiniAppMockup";
 import BeforeAfterBar from "../../components/BeforeAfterBar";
+import ExpandableImage from "../../components/ExpandableImage";
 
 const tags = ["PRODUCT DESIGN", "B2B", "ITEMS & INVENTORY"];
 
-const sidebarData = {
-  tags,
+const metaData = {
+  role: "User Experience Designer (Me)",
   duration: "5 months + 3 months implementation",
   status: "Shipped",
-  impact: [
-    { label: "Overall GMV benefit", value: "$151M" },
-    { label: "Total detections", value: "~180k" },
-    { label: "New andons onboarded", value: "+12" },
-    { label: "Notifications sent", value: "13.3k" },
-    { label: "Containment events", value: "147k" },
+  team: [
+    "Frontend Engineers",
+    "Senior Product Managers",
+    "Prinicipal Backend Engineers",
+    "Infrastructure Engineers",
   ],
-  team: ["User Experience Designer (Me)"],
   tools: ["Figma", "Mural", "Slack", "Zoom"],
 };
 
-const silos = [
-  "Category Specialists",
-  "Pricing Team",
-  "Returns Team",
-  "Customer Care",
-];
+const pulse: CaseStudyPulse = {
+  overview: {
+    eyebrow: "The Scale",
+    metrics: [
+      { value: "6", label: "teams routed through one bottleneck" },
+      { value: "73", label: "andons maintained by hand" },
+      { value: "~20 days", label: "average defect resolution" },
+    ],
+    supportingStatement:
+      "Anomaly detection that couldn't scale with the business.",
+  },
+  decisions: {
+    eyebrow: "The Shift",
+    transformation: {
+      from: "6 silos",
+      to: "1 platform",
+      label: "self-service anomaly detection",
+    },
+    supportingPoints: [
+      "Configurable, not hardcoded",
+      "Complexity revealed progressively",
+      "Containment automated by default",
+    ],
+  },
+  outcome: {
+    eyebrow: "The Impact",
+    transformation: {
+      from: "5–6 weeks",
+      to: "1 week",
+      label: "to launch a simple andon",
+    },
+    metrics: [
+      { value: "$151M", label: "overall GMV benefit" },
+      { value: "140", label: "andons onboarded" },
+    ],
+    status: "Shipped",
+  },
+};
 
 const decisions = [
   {
@@ -73,12 +110,12 @@ export default function Walmart() {
 
       <article className="px-6 pb-24 sm:px-10 md:px-14">
         <div className="mx-auto max-w-6xl">
-          <a
+          <Link
             href="/"
             className="font-mono-hero text-sm text-secondary no-underline hover:text-accent hover:underline"
           >
             &larr; back home
-          </a>
+          </Link>
 
           <p className="font-mono-hero mt-6 text-xs tracking-[0.15em] text-secondary uppercase">
             Walmart &middot; 2024
@@ -87,15 +124,22 @@ export default function Walmart() {
             Infinity Beyond
           </h1>
 
-          <div className="mt-10 grid grid-cols-1 gap-10 sm:mt-14 lg:grid-cols-[260px_1fr] lg:gap-14">
-            <CaseStudySidebar {...sidebarData} />
+          <ProjectMeta tags={tags} {...metaData} />
+
+          <div className="mt-10 grid grid-cols-1 gap-10 md:grid-cols-[220px_1fr] md:gap-10 lg:grid-cols-[260px_1fr] lg:gap-14">
+            <ProjectPulse pulse={pulse} />
 
             <div className="min-w-0">
               {/* Cover */}
-              <div className="from-accent flex aspect-video items-center justify-center rounded-lg border border-foreground/10 bg-gradient-to-br to-[#88bfab]">
-                <span className="font-clash text-4xl font-semibold text-white/50 sm:text-6xl">
-                  Infinity Beyond
-                </span>
+              <div className="overflow-hidden rounded-lg border border-foreground/10">
+                <Image
+                  src="/images/work/Slide 16_9 - 1.png"
+                  alt="Catalog One landing page, welcoming a user back into taxonomy, catalog and spec management"
+                  width={1568}
+                  height={882}
+                  className="h-auto w-full"
+                  priority
+                />
               </div>
 
               <p className="font-mono-hero mt-8 text-xs tracking-[0.1em] text-secondary uppercase">
@@ -107,13 +151,15 @@ export default function Walmart() {
               </h2>
 
               {/* 1. Overview & Problem */}
-              <section className="mt-10 sm:mt-14">
+              <section id="overview" className="mt-10 scroll-mt-10 sm:mt-14">
                 <div className="flex items-baseline justify-between gap-4 border-b border-foreground/10 pb-4">
                   <h2 className="font-clash text-2xl font-medium sm:text-3xl">
                     Overview &amp; problem
                   </h2>
                   <span className="font-mono-hero text-accent text-sm">01</span>
                 </div>
+
+                <ProjectPulseInline pulse={pulse} section="overview" />
 
                 <p className="font-mono-hero mt-6 max-w-2xl text-base leading-relaxed text-secondary">
                   Infinity is a self-scalable, machine-learning anomaly
@@ -141,93 +187,37 @@ export default function Walmart() {
 
                   {/* Silo diagram */}
                   <div className="rounded-lg border border-foreground/10 bg-white/70 p-6">
-                    <svg viewBox="0 0 200 70" className="h-16 w-full">
-                      <rect
-                        x="70"
-                        y="46"
-                        width="60"
-                        height="18"
-                        rx="3"
-                        fill="#2541b2"
-                      />
-                      <text
-                        x="100"
-                        y="58"
-                        textAnchor="middle"
-                        fontSize="7"
-                        fill="#fcfdff"
-                        fontFamily="monospace"
-                      >
-                        Infinity Dev
-                      </text>
-                      <line
-                        x1="20"
-                        y1="10"
-                        x2="90"
-                        y2="48"
-                        stroke="#25232333"
-                        strokeWidth="1.5"
-                        strokeDasharray="4 3"
-                      />
-                      <line
-                        x1="75"
-                        y1="10"
-                        x2="95"
-                        y2="48"
-                        stroke="#25232333"
-                        strokeWidth="1.5"
-                        strokeDasharray="4 3"
-                      />
-                      <line
-                        x1="130"
-                        y1="10"
-                        x2="107"
-                        y2="48"
-                        stroke="#25232333"
-                        strokeWidth="1.5"
-                        strokeDasharray="4 3"
-                      />
-                      <line
-                        x1="185"
-                        y1="10"
-                        x2="118"
-                        y2="48"
-                        stroke="#25232333"
-                        strokeWidth="1.5"
-                        strokeDasharray="4 3"
-                      />
-                    </svg>
-                    <div className="mt-2 flex flex-wrap items-center justify-center gap-2">
-                      {silos.map((s) => (
-                        <span
-                          key={s}
-                          className="font-mono-hero rounded-full border border-foreground/20 bg-white px-2.5 py-1 text-[11px] text-secondary"
-                        >
-                          {s}
-                        </span>
-                      ))}
-                    </div>
+                    <Image
+                      src="/images/work/InfinifySilo.png"
+                      alt="Category Specialists and the Pricing Team both routing requests through Infinity Engineers to reach the Infinity System"
+                      width={3408}
+                      height={2304}
+                      className="h-auto w-full"
+                    />
                     <p className="font-mono-hero mt-3 text-center text-xs text-secondary">
                       Every team, its own request queue
                     </p>
                   </div>
                 </div>
 
-                <p className="font-mono-hero mt-8 max-w-2xl text-sm leading-relaxed font-medium text-foreground">
-                  Vision: enable self-service that cuts engineering work, scales
-                  operations effectively, and boosts productivity,
-                  cost-efficiency and customer satisfaction.
+                <h3 className="font-clash text-lg font-medium sm:text-xl">
+                  The Vision
+                </h3>
+                <p className="font-mono-hero mt-4 text-sm leading-relaxed font-regular text-foreground">
+                  To enable Self-Service that will help in cutting engineering work, scaling operations effectively, and boosting productivity, cost-efficiency, and customer satisfaction.
                 </p>
               </section>
 
               {/* 2. Key design decisions */}
-              <section className="mt-16 sm:mt-24">
+              <section id="decisions" className="mt-16 scroll-mt-10 sm:mt-24">
                 <div className="flex items-baseline justify-between gap-4 border-b border-foreground/10 pb-4">
                   <h2 className="font-clash text-2xl font-medium sm:text-3xl">
                     Key design decisions
                   </h2>
                   <span className="font-mono-hero text-accent text-sm">02</span>
                 </div>
+
+                <ProjectPulseInline pulse={pulse} section="decisions" />
 
                 <p className="font-mono-hero mt-6 max-w-2xl text-sm leading-relaxed text-secondary">
                   A collapsible navigation kept the whole andon-creation flow
@@ -251,7 +241,7 @@ export default function Walmart() {
               </section>
 
               {/* 3. Outcome */}
-              <section className="mt-16 sm:mt-24">
+              <section id="outcome" className="mt-16 scroll-mt-10 sm:mt-24">
                 <div className="flex items-baseline justify-between gap-4 border-b border-foreground/10 pb-4">
                   <h2 className="font-clash text-2xl font-medium sm:text-3xl">
                     Outcome
@@ -259,8 +249,22 @@ export default function Walmart() {
                   <span className="font-mono-hero text-accent text-sm">03</span>
                 </div>
 
-                <p className="font-mono-hero mt-6 max-w-2xl text-sm leading-relaxed text-secondary">
-                  We presented the designs to a set of users before launch;
+                <ProjectPulseInline pulse={pulse} section="outcome" />
+
+                <div className="mt-6">
+                  <ExpandableImage
+                    src="/images/work/frame1321317413.png"
+                    alt="Final Infinity screens: andons dashboard, andon creation flow, user management, and detection, containment and data source configuration"
+                    width={7680}
+                    height={3616}
+                  />
+                  <p className="font-mono-hero mt-2 text-xs text-secondary italic">
+                    Click the image above to view it in full.
+                  </p>
+                </div>
+
+                <p className="font-mono-hero mt-6 text-sm leading-relaxed text-secondary">
+                  We presented the designs to a set of users before launch and the
                   response from users and leadership was strongly positive on
                   both the UI and the overall andon-creation experience. Since
                   launch, Infinity has driven over $151M in business impact, and
@@ -298,21 +302,21 @@ export default function Walmart() {
             <p className="font-mono-hero text-xs tracking-[0.1em] text-secondary uppercase">
               More from Walmart
             </p>
-            <a
+            <Link
               href="/work/walmart/catalog-one"
               className="font-clash mt-2 inline-block text-xl font-medium text-foreground no-underline hover:text-accent"
             >
               Catalog One &rarr;
-            </a>
+            </Link>
           </div>
 
           <div className="mt-10">
-            <a
+            <Link
               href="/"
               className="font-mono-hero text-sm text-secondary no-underline hover:text-accent hover:underline"
             >
               &larr; back home
-            </a>
+            </Link>
           </div>
         </div>
       </article>

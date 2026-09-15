@@ -1,33 +1,6 @@
+import Link from "next/link";
 import Image from "next/image";
 import SiteHeader from "./components/SiteHeader";
-
-const confetti = [
-  { left: 120, top: 150, size: 36, color: "#88bfab", rotate: 8 },
-  { left: 253, top: 358, size: 26, color: "#2541b2", rotate: 8 },
-  { left: 170, top: 200, size: 24, color: "#dad2bc", round: true },
-  { right: 120, top: 150, size: 36, color: "#93b2c1", rotate: -10 },
-  { right: 90, top: 210, size: 22, color: "#2541b2", round: true },
-  { right: 170, top: 372, size: 22, color: "#88bfab", round: true },
-  { left: 217, top: 766, size: 22, color: "#88bfab", round: true },
-  { right: 217, top: 763, size: 22, color: "#dad2bc", round: true },
-  { left: 90, top: 420, size: 30, color: "#c8cbd8" },
-  { left: 133, top: 639, size: 30, color: "#c8622f" },
-  { right: 133, top: 483, size: 28, color: "#c8622f", rotate: 14 },
-  { left: 182, top: 521, size: 20, color: "#93b2c1", round: true },
-  { right: 182, top: 660, size: 26, color: "#88bfab", rotate: -6 },
-  { left: 100, top: 900, size: 32, color: "#dad2bc", rotate: 10 },
-  { right: 100, top: 900, size: 20, color: "#c8622f", round: true },
-  { left: 150, top: 1080, size: 24, color: "#93b2c1", round: true },
-  { right: 140, top: 1060, size: 30, color: "#88bfab", rotate: -8 },
-  { left: 95, top: 1260, size: 20, color: "#2541b2", round: true },
-  { right: 105, top: 1280, size: 26, color: "#dad2bc", rotate: 12 },
-  { left: 190, top: 1450, size: 28, color: "#c8622f", rotate: -12 },
-  { right: 170, top: 1470, size: 22, color: "#93b2c1", round: true },
-  { left: 120, top: 1650, size: 22, color: "#88bfab", round: true },
-  { right: 130, top: 1630, size: 30, color: "#c8cbd8", rotate: 6 },
-  { left: 180, top: 1830, size: 26, color: "#2541b2", rotate: 10 },
-  { right: 160, top: 1850, size: 20, color: "#c8622f", round: true },
-];
 
 type WorkItem = {
   name: string;
@@ -37,7 +10,7 @@ type WorkItem = {
 };
 
 type CaseStudy = {
-  company: string;
+  project: string;
   employer?: string;
   dates?: string;
   summary: string;
@@ -49,71 +22,61 @@ type CaseStudy = {
   href?: string;
 };
 
-// Placeholder gradient art on Everpure — swap in a real product screenshot.
 const caseStudies: CaseStudy[] = [
   {
-    company: "Everpure",
-    dates: "2025 — Present",
-    summary: "Leading product design for Everpure's core platform and design system.",
-    gradient: "from-[#88bfab] via-[#a9c9c8] to-[#2541b2]",
-    headline: "Rethinking a core workflow that teams relied on daily",
-    description:
-      "Led design end-to-end for a workflow used across every team, cutting friction out of a process people touched daily.",
-    tags: ["PRODUCT DESIGN", "B2B", "DESIGN SYSTEM"],
-  },
-  {
-    company: "Infinity Beyond",
+    project: "Infinity Beyond",
     employer: "Walmart",
     dates: "2024",
     summary: "An anomaly detection platform for Walmart's item catalog.",
-    gradient: "from-[#dad2bc] via-[#93b2c1] to-[#2541b2]",
-    headline: "Redesigning self-service anomaly detection at Walmart scale",
+    image: { src: "/images/work/Slide 16_9 - 141.png", width: 1568, height: 882 },
+    headline: "Reimagining anomaly detection for faster resolution",
     description:
       "Unified detection, containment and alerting into one platform, cutting defect resolution time by 80%.",
-    tags: ["PRODUCT DESIGN", "ENTERPRISE UX", "ANOMLAY DETECTION"],
+    tags: ["PRODUCT DESIGN", "ENTERPRISE UX", "ANOMALY DETECTION"],
     href: "/work/walmart",
   },
   {
-    company: "Catalog One",
+    project: "Catalog One",
     employer: "Walmart",
     summary: "The single source of truth for taxonomy management at Walmart.",
     image: { src: "/images/work/slide-16-9-13.png", width: 1568, height: 882 },
     headline: "Unifying fourteen platforms into a single source of truth",
     description:
       "Consolidated attribute management, cataloging and spec management into one platform, cutting task time from 30 minutes to 5–10.",
-    tags: ["ENTERPRISE UX", "COMPLEX SYSTEMS", "IDEATION TO LAUNCH"],
+    tags: ["ENTERPRISE UX", "COMPLEX SYSTEMS", "ITEM-DATA MANAGEMENT"],
     href: "/work/walmart/catalog-one",
   },
+
 ];
 
 type EmploymentProject = { name: string; href?: string };
-type Employment = { company: string; dates: string; projects: EmploymentProject[] };
+type Employment = { project: string; dates: string; projects: EmploymentProject[] };
 
 // Placeholder years — confirm real employment dates. Indegene/Accenture project
 // specifics aren't documented yet, so they show a dash for now.
 const employmentHistory: Employment[] = [
   {
-    company: "Everpure",
+    project: "Everpure",
     dates: "2025 — Present",
     projects: [{ name: "Kubernetes Data Platforms & Spec Generation" }],
   },
   {
-    company: "Walmart",
+    project: "Walmart",
     dates: "2022 — 2025",
     projects: [{ name: "Item & Catalog Management" }],
   },
   {
-    company: "Indegene",
+    project: "Indegene",
     dates: "2021 — 2022",
     projects: [{ name: "Drug Manufacturing & Marketing Applications" }],
   },
   {
-    company: "Cognitron Techonologies",
+    project: "Cognitron Technologies",
     dates: "2021 — 2021",
     projects: [{ name: "Design Internship" }],
   },
   {
-    company: "Accenture",
+    project: "Accenture",
     dates: "2018 — 2020",
     projects: [{ name: "Application Development Associate" }],
   },
@@ -153,304 +116,69 @@ const workColumns: { title: string; subtitle: string; items: WorkItem[] }[] = [
   },
 ];
 
-function ScrollArrow() {
-  return (
-    <svg width="56" height="43" viewBox="0 0 111 85" fill="none">
-      <path
-        d="M109.249 2.14412C72.4923 -1.59467 1.23112 9.15887 10.243 82.0834M20.702 72.3534L10.243 82.0834L1.5 74.0407"
-        stroke="#252323"
-        strokeWidth="3"
-        strokeLinecap="round"
-      />
-    </svg>
-  );
+function Arrow() {
+  return <span className="link-arrow" aria-hidden="true">↗</span>;
 }
 
 export default function Home() {
   return (
     <>
-      {/* Nav + Hero */}
-      <div className="relative overflow-hidden">
-        <div className="grid-paper">
-          <SiteHeader active="work" />
-
-        {/* confetti, desktop only */}
-        <div className="pointer-events-none absolute inset-0 hidden lg:block">
-          {confetti.map((c, i) => (
-            <div
-              key={i}
-              className="absolute"
-              style={{
-                left: c.left,
-                right: c.right,
-                top: c.top,
-                width: c.size,
-                height: c.size,
-                background: c.color,
-                borderRadius: c.round ? "50%" : undefined,
-                transform: c.rotate ? `rotate(${c.rotate}deg)` : undefined,
-              }}
-            />
-          ))}
-        </div>
-
-        <section className="relative flex flex-col items-center gap-7 px-6 py-16 text-center sm:gap-8 sm:py-20 md:py-24">
-          <div className="flex flex-col items-center gap-8 sm:flex-row sm:text-left">
-            <Image
-              src="/images/profile.png"
-              alt="Akshita Chandrashekar"
-              width={150}
-              height={150}
-              className="h-32 w-32 rounded-full object-cover shadow-lg sm:h-[150px] sm:w-[150px]"
-              priority
-            />
+      <SiteHeader active="work" />
+      <main className="portfolio-main">
+        <section className="intro-grid" aria-label="Introduction">
+          <div className="intro-person">
+            <div className="portrait-row">
+              <Image src="/images/profile.png" alt="Akshita Chandrashekar" width={96} height={96} priority className="portrait" />
+              <span className="eyebrow">A lot of curiosity.<br />A lot of intention.</span>
+            </div>
             <div>
-              <p className="font-mono-hero text-lg italic text-secondary sm:text-xl">
-                Oh, hello there!
-              </p>
-              <h1 className="font-clash mt-2 text-5xl font-semibold leading-[1.1] sm:text-6xl md:text-7xl">
-                I&rsquo;m Akshita.
-              </h1>
+              <p className="hello">Oh, hello there!</p>
+              <h1>I’m Akshita<br />Chandrashekar<span className="accent-dot">.</span></h1>
             </div>
+            <div className="intro-caption"><span>User Experience Designer</span><span>·</span><span>Bengaluru, IN</span></div>
           </div>
-
-          <p className="font-mono-hero max-w-xl text-lg leading-relaxed font-light sm:text-xl">
-            I design digital products that turn complexity into<br></br>{" "}
-            <span className="bg-accent px-2 py-0.5 italic text-background">
-            clarity people trust.
-            </span>
-          </p>
-
-          <p className="font-mono-hero text-sm text-foreground sm:text-base">
-            8 yrs experience &nbsp;&middot;&nbsp; Bengaluru &nbsp;&middot;&nbsp;
-            Product &amp; UX Design
-          </p>
-
-          <div className="w-full max-w-xl border border-foreground/15 bg-white/70 px-6 py-6 text-left sm:px-8">
-            <div className="font-mono-hero space-y-2 text-sm sm:text-base">
-              <div>
-                <span className="text-secondary">Currently</span> &mdash;
-                Designing @{" "}
-                <a href="#work" className="no-underline hover:underline">
-                  Everpure
-                </a>
-              </div>
-              <div>
-                <span className="text-secondary">Previously</span> &mdash; @{" "}
-                <a href="#work" className="no-underline hover:underline">
-                  Walmart
-                </a>
-                , @ Indegene, @ Accenture
-              </div>
-            </div>
-            <div className="font-mono-hero mt-4 text-right text-xs text-secondary">
-              career.log
-            </div>
+          <div className="intro-statement">
+            <span className="eyebrow"><span className="tiny-square" /> The way I see it</span>
+            <h2>Complexity<br />meets <span>clarity.</span></h2>
+            <p>I design digital products that make complex systems feel intuitive. Thoughtful experiences, built around the people who use them.</p>
+            <a href="#work" className="text-link">Explore my work <Arrow /></a>
           </div>
-
-          <div className="mt-2 flex flex-col items-center gap-1.5">
-            <ScrollArrow />
-            <span className="font-handwritten text-2xl">scroll to explore</span>
+          <div className="intro-current">
+            <span className="eyebrow"><span className="status-dot" /> Currently designing at</span>
+            <div><h2>Everpure</h2><p>Bringing clarity to enterprise<br />data platforms.</p></div>
+            <span className="current-note">Product Design · Complex Enterprise Systems</span>
           </div>
-        </section>
-        </div>
-
-        {/* Work list */}
-        <section id="work" className="px-6 py-16 sm:px-10 sm:py-24 md:px-14">
-          <div className="mx-auto max-w-5xl">
-            <h2 className="font-clash mb-16 text-4xl font-medium leading-none sm:mb-20 sm:text-5xl">
-              Selected{" "}
-              <span className="font-serif text-secondary italic">Work</span>
-            </h2>
-
-            <div className="mb-20 grid grid-cols-1 gap-x-8 gap-y-16 sm:mb-24 sm:grid-cols-2">
-              {caseStudies.map((cs) => {
-                const Wrapper = cs.href ? "a" : "div";
-                return (
-                  <div key={cs.company}>
-                    <Wrapper
-                      {...(cs.href ? { href: cs.href } : {})}
-                      className={`group relative flex aspect-video items-center justify-center overflow-hidden rounded-lg border border-foreground/10 no-underline ${
-                        cs.image ? "" : `bg-gradient-to-br ${cs.gradient}`
-                      }`}
-                    >
-                      {cs.image ? (
-                        <Image
-                          src={cs.image.src}
-                          alt={`${cs.company} cover`}
-                          width={cs.image.width}
-                          height={cs.image.height}
-                          className="h-full w-full object-cover"
-                        />
-                      ) : (
-                        <span className="font-clash text-5xl font-semibold text-white/50 sm:text-6xl">
-                          {cs.company}
-                        </span>
-                      )}
-                    </Wrapper>
-
-                    <div className="mt-6 flex items-baseline justify-between gap-3">
-                      <h3 className="font-clash text-2xl font-medium sm:text-3xl">
-                        {cs.company}
-                      </h3>
-                      {cs.employer && (
-                        <span className="font-mono-hero text-xs text-secondary">
-                          {cs.employer}
-                        </span>
-                      )}
-                    </div>
-                    <p className="font-mono-hero mt-3 text-sm leading-relaxed text-secondary">
-                      {cs.headline}
-                    </p>
-                    <div className="mt-4 flex flex-wrap gap-2">
-                      {cs.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="font-mono-hero rounded-full border border-foreground/20 px-3 py-1 text-[11px] tracking-wide text-secondary"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-
-            <div className="border border-foreground/15 bg-white/70">
-              <div className="grid grid-cols-1 divide-y divide-foreground/15 sm:grid-cols-3 sm:divide-x sm:divide-y-0">
-                {workColumns.map((col) => (
-                  <div key={col.title} className="px-6 py-8 sm:px-7 sm:py-9">
-                    <h3 className="font-clash text-xl font-medium sm:text-2xl">
-                      {col.title}
-                    </h3>
-                    <p className="font-mono-hero mt-1 text-[11px] tracking-[0.1em] text-secondary uppercase">
-                      {col.subtitle}
-                    </p>
-
-                    <div className="mt-6 divide-y divide-foreground/10">
-                      {col.items.map((it) => {
-                        const body = (
-                          <>
-                            <div className="flex items-baseline justify-between gap-3">
-                              <span className="font-clash text-base font-medium text-foreground group-hover:text-accent sm:text-lg">
-                                {it.name}
-                              </span>
-                              {it.metric && (
-                                <span className="font-mono-hero text-sm font-medium text-accent">
-                                  {it.metric}
-                                </span>
-                              )}
-                            </div>
-                            <p className="font-mono-hero mt-1 text-sm leading-relaxed text-secondary">
-                              {it.description}
-                            </p>
-                          </>
-                        );
-
-                        return it.href ? (
-                          <a
-                            key={it.name}
-                            href={it.href}
-                            className="group block py-4 no-underline first:pt-0 last:pb-0"
-                          >
-                            {body}
-                          </a>
-                        ) : (
-                          <div
-                            key={it.name}
-                            className="py-4 first:pt-0 last:pb-0"
-                          >
-                            {body}
-                          </div>
-                        );
-                      })}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+          <Link href="/photography" className="intro-photo">
+            <div className="photo-copy"><span className="eyebrow">Beyond the screen</span><h2>Things I notice.</h2><span className="text-link">Photography <Arrow /></span></div>
+            <Image src="/images/photography/23-misty-mountains.png" alt="Layers of misty mountains" width={144} height={180} className="photo-preview" />
+          </Link>
+          <div className="intro-experience"><strong>8<span>+</span></strong><p>Years of turning<br />complexity into clarity.</p><span className="experience-line" /><p className="experience-previous">Previously at<br /><b>Walmart, Indegene &amp; Accenture</b></p></div>
+          <a href="#contact" className="intro-connect"><span>Good things start<br />with a conversation.</span><Arrow /></a>
         </section>
 
-        {/* Where I've worked */}
-        <section className="px-6 pb-16 sm:px-10 sm:pb-24 md:px-14">
-          <div className="mx-auto max-w-5xl">
-            <h2 className="font-clash mb-10 text-4xl font-medium leading-none sm:mb-14 sm:text-5xl">
-              Where I&rsquo;ve worked
-            </h2>
-
-            <div className="font-mono-hero mb-2 flex items-center gap-4 text-xs tracking-[0.1em] text-secondary uppercase">
-              <span>Previous work</span>
-              <span className="flex-1 border-t border-dotted border-foreground/30" />
-            </div>
-
-            <div>
-              {employmentHistory.map((emp) =>
-                emp.projects.map((proj, pi) => (
-                  <div
-                    key={`${emp.company}-${proj.name}`}
-                    className="grid grid-cols-1 gap-1 border-b border-foreground/10 py-5 sm:grid-cols-[220px_1fr] sm:gap-10 sm:py-6"
-                  >
-                    <div>
-                      {pi === 0 && (
-                        <>
-                          <h3 className="font-clash text-lg font-medium sm:text-xl">
-                            {emp.company}
-                          </h3>
-                          <p className="font-mono-hero mt-1 text-xs text-secondary">
-                            {emp.dates}
-                          </p>
-                        </>
-                      )}
-                    </div>
-                    <div>
-                      {proj.href ? (
-                        <a
-                          href={proj.href}
-                          className="font-mono-hero text-sm text-foreground no-underline hover:text-accent hover:underline"
-                        >
-                          {proj.name}
-                        </a>
-                      ) : (
-                        <span className="font-mono-hero text-sm text-secondary">
-                          {proj.name}
-                        </span>
-                      )}
-                    </div>
-                  </div>
-                )),
-              )}
-            </div>
+        <section id="work" className="selected-work">
+          <div className="section-heading"><div><span className="eyebrow">01 / Selected work</span><h2>Intentional design.<br /><span>Meaningful impact.</span></h2></div><p>A selection of case studies and the thinking behind them.</p></div>
+          <div className="project-grid">
+            {caseStudies.map((cs, index) => (
+              <Link href={cs.href!} key={cs.project} className={`project-card project-${index}`}>
+                <div className="project-image"><span className="project-index">0{index + 1} / WALMART</span><Image src={cs.image!.src} alt={`${cs.project} product interface`} width={1568} height={882} sizes="(max-width: 700px) 100vw, 50vw" /><span className="project-open" aria-hidden="true">↗</span></div>
+                <div className="project-title"><h3>{cs.project}</h3><span>Walmart</span></div>
+                <h4>{cs.headline}</h4><p>{cs.description}</p>
+                <div className="project-tags">{cs.tags.slice(0, 2).map(tag => <span key={tag}>{tag}</span>)}</div>
+              </Link>
+            ))}
           </div>
+          <div className="current-project"><div><span className="eyebrow">The next chapter / Everpure</span><h3>Making enterprise data feel simpler.</h3></div><p>Currently shaping core Kubernetes platform experiences. More to share soon. :)</p></div>
         </section>
-      </div>
 
-      {/* Footer
-      <footer
-        id="contact"
-        className="mt-auto flex flex-col items-start justify-between gap-10 bg-[#252323] px-6 py-14 text-[#f5f1ed] sm:flex-row sm:items-end sm:px-10 sm:py-16 md:px-18"
-      >
-        <p className="font-serif italic max-w-xl text-xl leading-relaxed sm:text-2xl">
-          Moving forward, I aspire to contribute to products that leave a
-          lasting mark on a global scale and emerge as the preferred choice for
-          users everywhere. :)
-        </p>
-        <div className="font-display flex flex-col items-start gap-2 sm:items-end">
-          <a
-            href="mailto:info.akshitac@gmail.com"
-            className="font-semibold text-[#f5f1ed] no-underline hover:opacity-80"
-          >
-            info.akshitac@gmail.com
-          </a>
-          <a
-            href="tel:+919844056562"
-            className="text-base text-[#f5f1ed]/70 no-underline hover:opacity-80"
-          >
-            +91 9844056562
-          </a>
-        </div>
-      </footer> */}
+        <section id="about" className="about-section">
+          <div className="about-copy"><span className="eyebrow">02 / A little about me</span><h2>A systems thinker.<br />An observer.<br /><span>Always curious.</span></h2><p>From enterprise workflows to everyday moments, I’m drawn to finding the simple in the complex. My work brings together product thinking, thoughtful interactions, and a care for the details.</p><a className="text-link" href="mailto:info.akshitac@gmail.com">Get in touch <Arrow /></a></div>
+          <div className="career-list"><span className="eyebrow">Where I’ve been</span>{employmentHistory.map((emp, index) => <div key={emp.project} className="career-row"><span className="career-number">0{index + 1}</span><div><h3>{emp.project}</h3><p>{emp.projects[0].name}</p></div>{index === 0 && <span className="now-label">Present</span>}{index === 1 && <span className="now-label">Previous stint</span>}</div>)}</div>
+        </section>
+
+        <section className="explorations"><div className="exploration-heading"><span className="eyebrow">03 / Off the clock</span><h2>Curiosity takes<br />many forms.</h2></div>{workColumns.map(col => <div className="exploration" key={col.title}><span className="eyebrow">{col.subtitle}</span><h3>{col.title}</h3><p>{col.items[0].description}</p>{col.items[0].href ? <a className="text-link" href={col.items[0].href}>View photographs <Arrow /></a> : <span className="exploration-name">{col.items[0].name} <span>· In progress</span></span>}</div>)}</section>
+      </main>
+      <footer id="contact" className="portfolio-footer"><div><span className="eyebrow">Have something in mind?</span><h2>Let’s make it<br /><a href="mailto:info.akshitac@gmail.com">meaningful. <Arrow /></a></h2></div><div className="footer-contact"><a href="mailto:info.akshitac@gmail.com">info.akshitac@gmail.com ↗</a><a href="tel:+919844056562">+91 9844056562</a><p>Based in Bengaluru.<br />Open to conversations everywhere.</p></div><div className="footer-bottom"><span>© {new Date().getFullYear()} Akshita Chandrashekar</span><span>Thoughtfully designed and built by Akshita Chandrashekar.</span><a href="#">Back to top ↑</a></div></footer>
     </>
   );
 }

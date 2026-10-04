@@ -18,7 +18,7 @@ const satoshi = localFont({
 export const metadata: Metadata = {
   title: "Akshita Chandrashekar — User Experience Designer",
   description:
-    "Portfolio of Akshita Chandrashekar, a User Experience Designer based in Bengaluru with 8 years of experience.",
+    "Portfolio of Akshita Chandrashekar, a User Experience Designer based in Bengaluru, bringing clarity to complex enterprise products across retail, healthcare, and data platforms.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

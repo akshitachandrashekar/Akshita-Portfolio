@@ -57,8 +57,8 @@ const pulse: CaseStudyPulse = {
       label: "to launch a simple andon",
     },
     metrics: [
-      { value: "$151M", label: "overall GMV benefit" },
-      { value: "140", label: "andons onboarded" },
+      { value: "$151M", label: "Overall GMV benefit" },
+      { value: "140", label: "New andons onboarded" },
     ],
     status: "Shipped",
   },

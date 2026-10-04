@@ -69,7 +69,7 @@ export default function ExpandableImage({
           aria-modal="true"
           aria-label={alt}
           onClick={() => setOpen(false)}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-[#181818]/90 p-4 sm:p-10"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-[#181818]/90 p-4 backdrop-blur-[6px] sm:p-10"
         >
           <button
             type="button"

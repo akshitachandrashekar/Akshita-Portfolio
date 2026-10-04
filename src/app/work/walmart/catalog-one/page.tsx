@@ -12,7 +12,7 @@ import ExpandableImage from "../../../components/ExpandableImage";
 const tags = ["ENTERPRISE UX", "COMPLEX SYSTEMS", "IDEATION TO LAUNCH"];
 
 const metaData = {
-  role: "Lead User Experience Designer (Me)",
+  role: "Lead Designer (Me)",
   duration: "~8 months (ideation → Phase 1)",
   status: "Shipped",
   team: [
